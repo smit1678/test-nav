@@ -9,356 +9,56 @@ html {
 body {
   font-family: $font-default;
   font-size: 16px;
-  background-color: $tan;
+  background-color: tint($blue-light, 65%);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
 }
 
-.hr-v {
-  @media (min-width: $screen-xs) {
-    width: 1px;
-    min-height: 100%;
-    background-color: $border-color;
+h1 {
+  font-size: 1rem;
+  margin: 0 0 32px;
+  font-size: .875rem;
+}
+
+.page-body {
+  padding: 32px;
+}
+
+.nav-sample {
+  background-color: tint($blue-light, 85%);
+  box-shadow: $default-box-shadow;
+  padding: 16px;
+  margin-bottom: 32px;
+  border-radius: $default-border-radius;
+}
+
+.description {
+  padding-top: 12px;
+  line-height: 1.4;
+  font-size: .875rem;
+  p {
+    margin: 0;
+  }
+  a {
+    text-decoration: none;
+    color: $blue-grey;
+    b {
+      // color: $blue-dark;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+    &:hover {
+      b {
+        color: $blue-dark;
+      }
+    }
   }
 }
 
-
-////////////////////////////////
-////////// Nav Styles //////////
-////////////////////////////////
-
-
-#nav {
-  position: relative;
-  background-color: #FFF;
-  margin-bottom: 1px;
-  box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, .12);
-
-  &.nav-fixed {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-  }
-
-  a {
-    color: $red;
-    text-decoration: none;
-  }
-
-  .nav-container {
-    padding: 12px;
-    @media (min-width: $screen-xs) {
-      display: flex;
-    }
-  }
-
-  .nav-items {
-    display: none;
-    @media (min-width: $screen-xs) {
-      display: flex;
-      flex: 1;
-    }
-    @media (max-width: $screen-xs) {
-      padding-top: 8px;
-    }
-  }
-
-  &.show-nav {
-    .nav-items {
-      display: block;
-    }
-  }
-
-  .nav-title {
-    min-height: 40px;
-    display: inline-flex;
-    font-weight: bold;
-    margin-right: 24px;
-    border: 2px solid $red;
-    border-radius: 1px;
-    transition: background-color .3s ease;
-    span {
-      padding: 9px 10px;
-      flex: 0 1 auto;
-    }
-    &:hover {
-      background-color: tint($red, 85%);
-    }
-    .logo {
-      display: inline-block;
-      background-color: $red;
-      padding-left: 3px;
-      padding-right: 5px;
-      img {
-        height: 28px;
-        width: auto;
-      }
-    }
-  }
-
-  .nav-main {
-    @media (min-width: $screen-xs) {
-      display: flex;
-    }
-    a {
-      display: block;
-      font-family: $font-headline;
-      text-transform: uppercase;
-      letter-spacing: .035em;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      margin-right: 22px;
-      @media (max-width: $screen-xs) {
-        padding-top: 6px;
-        padding-bottom: 6px;
-      }
-    }
-  }
-
-  .nav-secondary {
-    font-size: 0.875rem;
-    @media (min-width: $screen-xs) {
-      display: flex;
-    }
-    a {
-      display: block;
-      color: tint($red, 10%);
-      padding-top: 8px;
-      padding-bottom: 8px;
-      @media (min-width: $screen-xs) {
-        margin-left: 22px;
-        padding-top: 12px;
-        padding-bottom: 12px;
-      }
-    }
-  }
-
-  .nav-main a, .nav-secondary a {
-    @media (min-width: $screen-xs) {
-      border-bottom: 2px solid transparent;
-      &:hover {
-        border-bottom: 2px solid tint($red, 50%);
-      }
-      &.active, &.active:hover {
-        border-bottom: 2px solid $red;
-      }
-    }
-  }
-
-  .support-logos {
-    align-self: center;
-    display: flex;
-    @media (max-width: $screen-xs) {
-      border-top: 1px solid $border-color;
-      padding-top: 12px;
-      margin-top: 8px;
-    }
-    span {
-      align-self: center;
-      font-size: 0.75rem;
-      color: tint($red, 25%);
-      @media (min-width: $screen-xs) {
-        padding-left: 16px;
-        position: relative;
-        top: -1px;
-      }
-    }
-    img {
-      height: 32px;
-      width: auto;
-      margin-left: 8px;
-    }
-  }
-
-  .nav-external-links {
-    align-self: center;
-    a {
-      font-size: 0.875rem;
-      color: tint($red, 25%);
-      padding: 8px 0;
-      @media (min-width: $screen-xs) {
-        margin-left: 16px;
-        position: relative;
-        top: -3px;
-      }
-      @media (max-width: $screen-xs) {
-        display: block;
-      }
-    }
-    svg {
-      display: inline;
-      width: 16px;
-      height: 16px;
-      position: relative;
-      top: 4px;
-    }
-  }
-
-  .nav-dropdown {
-    align-self: center;
-    font-size: 0.875rem;
-    @media (min-width: $screen-xs) {
-      display: inline-block;
-      margin-left: 22px;
-      position: relative;
-      top: -5px;
-    }
-    @media (max-width: $screen-xs) {
-      padding: 0 0 4px 0;
-    }
-    .dropdown-link {
-      padding: 8px 0;
-      color: tint($red, 10%);
-      @media (min-width: $screen-xs) {
-        padding: 12px 0;
-      }
-    }
-    svg {
-      display: inline;
-      width: 20px;
-      height: 20px;
-      position: relative;
-      top: 5px;
-    }
-    div {
-      position: relative;
-    }
-    div:hover,
-    div:focus-within {
-        cursor: pointer;
-    }
-    div:focus-within a {
-      outline: none;
-    }
-    div ul {
-      visibility: hidden;
-      opacity: 0;
-      position: absolute;
-      transition: all 0.3s ease;
-      left: 0;
-      display: none;
-      background-color: $red-light;
-      box-shadow: $hover-box-shadow;
-      border-radius: $default-border-radius;
-      padding: 16px 16px 0;
-      margin-top: 4px;
-      max-height: 320px;
-      min-width: 200px;
-      overflow: scroll;
-      z-index: 1000;
-      @media (min-width: $screen-xs) {
-        margin-top: 8px;
-      }
-    }
-    div:hover > ul,
-    div:focus-within > ul,
-    div ul:hover,
-    div ul:focus {
-      visibility: visible;
-      opacity: 1;
-      display: block;
-    }
-    div ul li {
-      clear: both;
-      width: 100%;
-      margin-bottom: 16px;
-      display: block;
-    }
-  }
-
-  .nav-btn {
-    display: block;
-    background-color: $blue-dark;
-    font-size: 0.875rem;
-    font-weight: bold;
-    text-align: center;
-    color: $white !important;
-    padding: 12px 16px;
-    border-radius: $default-border-radius;
-    transition: all .3s ease;
-    &:hover {
-      background-color: $blue-grey;
-      box-shadow: $hover-box-shadow;
-      border-bottom: none !important;
-    }
-    @media (min-width: $screen-xs) {
-      margin-left: 24px;
-    }
-    @media (max-width: $screen-xs) {
-      margin-top: 4px;
-    }
-  }
-
-  .nav-left {
-    @media (min-width: $screen-xs) {
-      flex: 1;
-      display: flex;
-    }
-  }
-
-  .nav-right {
-    @media (min-width: $screen-xs) {
-      display: flex;
-    }
-    .nav-dropdown div ul {
-      @media (min-width: $screen-xs) {
-        right: 0;
-        left: auto;
-      }
-    }
-    .hr-v {
-      margin-left: 16px;
-    }
-  }
-
-  &.unbranded {
-    a {
-      color: $blue-dark;
-    }
-    .nav-title {
-      border: 2px solid $blue-dark;
-      &:hover {
-        background-color: tint($blue-dark, 90%);
-      }
-    }
-    .nav-main a, .nav-secondary a {
-      color: $blue-dark;
-      @media (min-width: $screen-xs) {
-        border-bottom: 2px solid transparent;
-        &:hover {
-          border-bottom: 2px solid tint($blue-dark, 50%);
-        }
-        &.active, &.active:hover {
-          border-bottom: 2px solid $blue-dark;
-        }
-      }
-    }
-    .nav-secondary a {
-      color: tint($blue-dark, 10%);
-    }
-    .nav-external-links a {
-      color: tint($blue-dark, 25%);
-    }
-    .support-logos span {
-      color: tint($blue-dark, 25%);
-    }
-  }
-
-  #nav-anchor {
-    position: absolute;
-    top: 1px;
-    right: 0;
-    padding: 23px 12px 23px 16px;
-    cursor: pointer;
-    transition: top .3s ease;
-    @media (min-width: $screen-xs) {
-      display: none;
-    }
-    &:hover {
-      top: 0;
-    }
-  }
-
+.back {
+  display: inline-block;
+  margin-left: 12px;
+  padding-top: 12px;
+  color: $blue-grey;
 }

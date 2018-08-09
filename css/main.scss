@@ -40,8 +40,8 @@ $hover-box-shadow: 0px 2px 15px rgba(0,0,0,.2);
   @return mix(black, $color, $percentage);
 }
 
-
 @import
   "fonts",
-  "base"
+  "base",
+  "nav"
 ;
