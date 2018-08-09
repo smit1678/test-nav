@@ -1,0 +1,43 @@
+<div id="nav" class="unbranded">
+  <div class="nav-container">
+    <a class="nav-title" href="/">
+      <span>Project Title</span>
+    </a>
+    <div class="nav-items">
+      <div class="nav-left">
+        <nav class="nav-main">
+          <a href="#" class="active">Item One</a>
+          <a href="#">Item Two</a>
+          <a href="#">Item Three</a>
+        </nav>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-secondary">
+          <a href="#">Secondary One</a>
+        </nav>
+        <div class="hr-v"></div>
+        <div class="support-logos">
+          <span>Supported by:</span>
+          <a href="#" target="_blank">
+            <img src="{{ '/images/mapbox-logo-icon.svg' | prepend: site.baseurl }}">
+          </a>
+          <a href="#" target="_blank">
+            <img src="{{ '/images/hot-logo-icon.svg' | prepend: site.baseurl }}">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="nav-anchor">
+    <svg height="14" viewBox="0 0 24 14" width="24" xmlns="http://www.w3.org/2000/svg"><g fill="#2C3038" fill-rule="evenodd"><path d="m0 0h24v2h-24z"/><path d="m0 6h24v2h-24z"/><path d="m0 12h24v2h-24z"/></g></svg>
+  </div>
+</div>
+
+<script>
+  var navAnchor = document.getElementById('nav-anchor'),
+    nav = document.getElementById('nav');
+  navAnchor.addEventListener('click', function(e) {
+    nav.className = nav.className? '' : 'show-nav';
+    e.preventDefault();
+  });
+</script>
